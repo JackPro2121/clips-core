@@ -42,7 +42,7 @@ def ffprobe_binary() -> str:
 def require_ffmpeg() -> None:
     if shutil.which("ffmpeg") is None or shutil.which("ffprobe") is None:
         raise FfmpegUnavailable(
-            "ffmpeg/ffprobe not on PATH. tools/install_deps.sh installs ffmpeg; "
+            "ffmpeg/ffprobe not on PATH. core/tools/install_deps.sh installs ffmpeg; "
             "verification of rendered pixels is impossible without it."
         )
 

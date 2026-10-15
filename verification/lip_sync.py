@@ -8,7 +8,7 @@ finished clip *is* in sync, end to end, using the standard SyncNet metrics:
 * **LSE-D** -- minimum L1 distance across face tracks (lower is better).
 
 Implementation: the MIT-licensed ``syncnet-python`` package with the official
-Oxford VGG SyncNet and S3FD checkpoints fetched by ``tools/fetch_models.py``
+Oxford VGG SyncNet and S3FD checkpoints fetched by ``core/tools/fetch_models.py``
 (SHA-256 pinned). It runs in the ML tier (``requirements-ml.txt``); the render
 job does not install torch.
 
@@ -17,7 +17,7 @@ Thresholds
 ``PROVISIONAL_*`` values come from the wrapper package's published bands. They
 are explicitly provisional: the published bands were calibrated on talking-face
 benchmarks, not on loudnorm-processed vertical podcast crops, so
-``tools/syncnet_calibrate.py`` measures the golden-master corpus and the
+``core/tools/syncnet_calibrate.py`` measures the golden-master corpus and the
 constants are repinned from that evidence. Until then the verdict reports the
 metric at ``warning`` severity instead of blocking.
 """
@@ -104,7 +104,7 @@ def _load_pipeline(models: Path):
         return None, (
             "checkpoints missing: "
             + ", ".join(path.name for path in missing)
-            + "; run python tools/fetch_models.py --fetch all"
+            + "; run python core/tools/fetch_models.py --fetch all"
         )
     config = PipelineConfig(
         s3fd_weights=str(s3fd),

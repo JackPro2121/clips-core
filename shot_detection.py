@@ -148,8 +148,8 @@ class TransNetV2Detector:
     without onnxruntime installed.
 
     The ONNX graph is the project's own export of the proven
-    ``transnetv2-pytorch`` model (tools/export_transnetv2_onnx.py), fetched from
-    the immutable golden-masters release by tools/fetch_models.py:
+    ``transnetv2-pytorch`` model (core/tools/export_transnetv2_onnx.py), fetched from
+    the immutable golden-masters release by core/tools/fetch_models.py:
 
         input  ``frames``       uint8 [1, 100, 27, 48, 3]
         output ``single_frame`` float [1, 100, 1]  (sigmoid applied)
@@ -237,7 +237,7 @@ class TransNetV2Detector:
             interpolation=cv2.INTER_AREA,
         )
         # The exported graph normalises internally; feed uint8 RGB exactly as
-        # tools/export_transnetv2_onnx.py decoded during the parity proof.
+        # core/tools/export_transnetv2_onnx.py decoded during the parity proof.
         return cv2.cvtColor(resized, cv2.COLOR_BGR2RGB).astype(np.uint8)
 
     def _transition_strengths(self, frames: Sequence[Any]) -> List[float]:

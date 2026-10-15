@@ -1,7 +1,7 @@
 """Fixture access for the golden-master corpus.
 
 The clips are the real published artifacts. They are not tracked in git; fetch
-them with ``python tools/fetch_fixtures.py``. Every file is SHA-256 verified
+them with ``python core/tools/fetch_fixtures.py``. Every file is SHA-256 verified
 against ``tests/fixtures/manifest.json`` on load, because a golden master that
 silently changes underneath the visual regression suite makes every assertion in
 it meaningless.
@@ -113,7 +113,7 @@ def by_id(identifier: str) -> Optional[GoldenMaster]:
 def fetch_hint() -> str:
     return (
         "Golden-master clips are not tracked in git (~140 MB). "
-        "Fetch them with:  python tools/fetch_fixtures.py"
+        "Fetch them with:  python core/tools/fetch_fixtures.py"
     )
 
 

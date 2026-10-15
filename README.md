@@ -51,4 +51,4 @@ Only two things are tracked in `models/`:
 - `streamer_profiles/*.npy` — small V2 SFace identity embeddings.
 
 All large weights (SFace, S3FD/SyncNet, TransNetV2) are **gitignored** and
-fetched by `tools/fetch_models.py` in the consumer repos, pinned by SHA-256.
+fetched by `core/tools/fetch_models.py` in the consumer repos, pinned by SHA-256.
